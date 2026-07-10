@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ===================================
+   DARK THEME (DEFAULT)
+=================================== */
+:root, [data-theme="dark"] {
+  --bg-base:       #1a1a22;
+  --bg-surface:    #22222e;
+  --bg-elevated:   #2a2a38;
+  --bg-overlay:    rgba(26,26,34,0.85);
+
+  --text-primary:  #f0f0f5;
+  --text-secondary:#a0a0b8;
+  --text-muted:    #5c5c80;
+
+  --accent:        #818cf8;
+  --accent-dark:   #6366f1;
+  --accent-glow:   rgba(99,102,241,0.35);
+
+  --border:        rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.12);
+
+  --shadow-a:      #111118;
+  --shadow-b:      #252530;
+
+  --neumorph-out:  8px 8px 18px var(--shadow-a), -8px -8px 18px var(--shadow-b);
+  --neumorph-in:   inset 6px 6px 14px var(--shadow-a), inset -6px -6px 14px var(--shadow-b);
+  --neumorph-btn:  5px 5px 10px var(--shadow-a), -5px -5px 10px var(--shadow-b);
+}
+
+/* ===================================
+   LIGHT THEME
+=================================== */
+[data-theme="light"] {
+  --bg-base:       #f0f0f8;
+  --bg-surface:    #e8e8f2;
+  --bg-elevated:   #ffffff;
+  --bg-overlay:    rgba(240,240,248,0.90);
+
+  --text-primary:  #000000;
+  --text-secondary:#333333;
+  --text-muted:    #656585;
+
+  --accent:        #6366f1;
+  --accent-dark:   #4f46e5;
+  --accent-glow:   rgba(99,102,241,0.25);
+
+  --border:        rgba(0,0,0,0.07);
+  --border-strong: rgba(0,0,0,0.13);
+
+  --shadow-a:      #d0d0dc;
+  --shadow-b:      #ffffff;
+
+  --neumorph-out:  8px 8px 18px var(--shadow-a), -8px -8px 18px var(--shadow-b);
+  --neumorph-in:   inset 6px 6px 14px var(--shadow-a), inset -6px -6px 14px var(--shadow-b);
+  --neumorph-btn:  5px 5px 10px var(--shadow-a), -5px -5px 10px var(--shadow-b);
+}
+
+/* ===================================
+   GLOBAL BASE
+=================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.2s ease, box-shadow 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================================
+   NEUMORPHISM UTILITIES
+=================================== */
+.neumorph {
+  background: var(--bg-base);
+  box-shadow: var(--neumorph-out);
+  border: 1px solid var(--border);
+}
+
+.neumorph-inset {
+  background: var(--bg-base);
+  box-shadow: var(--neumorph-in);
+}
+
+.neumorph-btn {
+  background: var(--bg-base);
+  box-shadow: var(--neumorph-btn);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.neumorph-btn:hover {
+  background: var(--bg-surface);
+}
+.neumorph-btn:active {
+  box-shadow: var(--neumorph-in);
+}
+
+/* ===================================
+   GLASSMORPHISM UTILITIES
+=================================== */
+.glassmorphism {
+  background: var(--bg-overlay);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+}
+
+/* ===================================
+   SKEUOMORPHIC CARD
+=================================== */
+.skeuomorph-card {
+  background: linear-gradient(145deg, var(--bg-surface), var(--bg-base));
+  box-shadow: var(--neumorph-out);
+  border-top: 1px solid var(--border-strong);
+  border-left: 1px solid var(--border);
+}
+
+/* ===================================
+   TEXT / UI HELPERS
+=================================== */
+.text-primary-color  { color: var(--text-primary); }
+.text-secondary-color { color: var(--text-secondary); }
+.text-muted-color    { color: var(--text-muted); }
+.text-accent         { color: var(--accent); }
+.bg-surface          { background-color: var(--bg-surface); }
+.bg-elevated         { background-color: var(--bg-elevated); }
+.border-theme        { border-color: var(--border); }
+
+/* ===================================
+   ACCENT BUTTON
+=================================== */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: all 0.25s ease;
+}
+.btn-accent:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   SCROLLBAR
+=================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 99px; }
